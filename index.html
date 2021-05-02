@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #433d3c;
+        }
+
+        #dropdown{
+            width: 30%;
+            margin: 20px auto;
+            text-align: center;
+            
+        }
+
+        .btn{
+            width: 300px;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        li{
+            list-style: none;
+            cursor: pointer;
+            border: 1px solid silver;
+            width: 300px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            margin-left: 14px;
+            color: azure;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropdown">
+        <button id="btnn" class="btn" value="users" onclick="dropdownBtn()">
+            Select User
+        </button>
+        <ul id="dropdownList">
+            <li onclick="handleselect('Leanne Graham')">Leanne Graham</li>
+            <li onclick="handleselect('Ervin Howell')">Ervin Howell</li>
+            <li onclick="handleselect('Clementine Bauch')">Clementine Bauch</li>
+            <li onclick="handleselect('Patricia Lebsack')">Patricia Lebsack</li>
+            <li onclick="handleselect('Chelsey Dietrich')">Chelsey Dietrich</li>
+            <li onclick="handleselect('Dennis Schulist')">Dennis Schulist</li>
+            <li onclick="handleselect('Kurtis Weissnat')">Kurtis Weissnat</li>
+        </ul>
+
+    </div>
+    <script>
+
+        document.getElementById("dropdownList").style.visibility="hidden";
+        document.addEventListener("click", function(){
+            if(event.target.value===undefined){
+                document.getElementById("dropdownList").style.visibility="hidden";
+            }
+        })
+
+        
+        function dropdownBtn(){
+            var list=document.getElementById("dropdownList");
+            if(list.style.visibility==='hidden'){
+                list.style.visibility='visible'
+            }else{
+                list.style.visibility='hidden';
+            }
+        }
+
+        
+        function handleselect(val){
+            document.getElementById("btnn").innerHTML=val;
+            dropdownBtn();
+        }
+
+    </script>
+</body>
+</html>
